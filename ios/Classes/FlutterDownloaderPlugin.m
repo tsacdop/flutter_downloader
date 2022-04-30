@@ -29,7 +29,7 @@
 #define ERROR_NOT_INITIALIZED [FlutterError errorWithCode:@"not_initialized" message:@"initialize() must called first" details:nil]
 #define ERROR_INVALID_TASK_ID [FlutterError errorWithCode:@"invalid_task_id" message:@"not found task corresponding to given task id" details:nil]
 
-#define STEP_UPDATE 10
+#define STEP_UPDATE 5
 
 @interface FlutterDownloaderPlugin()<NSURLSessionTaskDelegate, NSURLSessionDownloadDelegate, UIDocumentInteractionControllerDelegate>
 {
@@ -345,14 +345,17 @@ static BOOL debug = YES;
     if (debug) {
         NSLog(@"Absolute savedDir path: %@", absolutePath);
     }
+    
     if (absolutePath) {
         NSString* documentDirPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
         NSRange foundRank = [absolutePath rangeOfString:documentDirPath];
         if (foundRank.length > 0) {
             // we increase the location of range by one because we want to remove the file separator as well.
-            return [absolutePath substringWithRange:NSMakeRange(foundRank.length + 1, absolutePath.length - documentDirPath.length - 1)];
+            NSString *shortenSavedDirPath = [absolutePath substringWithRange:NSMakeRange(foundRank.length + 1, absolutePath.length - documentDirPath.length - 1)];
+            return shortenSavedDirPath != nil ? shortenSavedDirPath : @"";
         }
     }
+   
     return absolutePath;
 }
 

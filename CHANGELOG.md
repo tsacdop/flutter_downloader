@@ -1,3 +1,36 @@
+
+## 1.7.3 - 17-03-2022
+
+* fix bug [#614](https://github.com/fluttercommunity/flutter_downloader/issues/614)
+
+## 1.7.2 - 24-01-2022
+
+* fix bug on Android
+* upgrade Android dependencies (WorkerManager 2.7.1)
+
+## 1.7.1 - 08-10-2021
+
+* fix bug resume download on Android
+* upgrade Android dependencies (WorkerManager 2.7.0-rc01)
+
+## 1.7.0 - 07-09-2021
+
+* support Android 11 (ScopedStorage, PackageVisibility)
+
+## 1.6.1 - 29-05-2021
+
+* fix bug on Android: `getContentLength`
+* upgrade Android dependencies (WorkerManager 2.5.0)
+
+## 1.6.0 - 12-04-2021
+
+* Stable version of nullsafety
+
+## 1.6.0-nullsafety.0 - 28.02.2021
+
+* Fix bugs
+* Migrate to nullsafety
+
 ## 1.5.2 - 25.10.2020
 
 * Android: fix bug notification stuck in processing
